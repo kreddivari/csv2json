@@ -16,15 +16,7 @@ public class CSV2JSON {
 	 
     public static String convertCSVToJSON (InputStream csv) throws Exception {
        // File input = new File("src/main/resources/sample.csv");
-        File output = new File("output.json");
-        String result_json=null;
-        CsvSchema csvSchema = CsvSchema.builder().setUseHeader(true).build();
-        CsvMapper csvMapper = new CsvMapper();
-        List<Object> readAll = csvMapper.readerFor(Map.class).with(csvSchema).readValues(new InputStreamReader(csv, "ISO-8859-1")).readAll();
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.writerWithDefaultPrettyPrinter().writeValue(output, readAll);
-        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(readAll));
-        result_json=mapper.writerWithDefaultPrettyPrinter().writeValueAsString(readAll);
+
         return result_json;
 }
 
